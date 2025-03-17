@@ -11,7 +11,7 @@ function ShoveBoxButton({
     return (
         <Button
             onClick={() => {
-                setPosition(position + 4);
+                setPosition(4 + position);
             }}
         >
             Shove the Box
@@ -19,7 +19,8 @@ function ShoveBoxButton({
     );
 }
 
-function MoveableBox({ position }: { position: number }): React.JSX.Element {
+function MoveableBox(): React.JSX.Element {
+    const [position, setPosition] = useState<number>(10);
     return (
         <div
             data-testid="moveable-box"
@@ -37,16 +38,19 @@ function MoveableBox({ position }: { position: number }): React.JSX.Element {
 }
 
 export function ShoveBox(): React.JSX.Element {
-    const [position, setPosition] = useState<number>(10);
+    const box = MoveableBox();
 
     return (
         <div>
             <h3>Shove Box</h3>
-            <span>The box is at: {position}px</span>
+            {/* <span>The box is at: {box.position}</span>
             <div>
-                <ShoveBoxButton position={position} setPosition={setPosition} />
-                <MoveableBox position={position} />
-            </div>
+                <ShoveBoxButton
+                    position={box.position}
+                    setPosition={box.setPosition}
+                ></ShoveBoxButton>
+                {box}
+            </div> */}
         </div>
     );
 }

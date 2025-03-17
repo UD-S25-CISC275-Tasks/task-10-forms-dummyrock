@@ -1,5 +1,3 @@
 import { useState } from "react";
 
-export function useDhValue() {
-    return useState<number>(10);
-}
+export const [dhValue, setDhValue] = useState<number>(10);
